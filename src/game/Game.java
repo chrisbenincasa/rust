@@ -17,12 +17,13 @@ public class Game {
 	public void init() {
 		instance = this;
 		executors = new ArrayList<Command>();
-		createPlayer();
 		addBaseCommands();
 		parser = new Parser(this);
 	}
 	
 	public void run() {
+		printASCII();
+		createPlayer();
 		parser.start();
 	}
 	
@@ -49,5 +50,16 @@ public class Game {
 		System.out.println("Enter your player name: ");
 		String playerName = in.nextLine();
 		this.player = new Player(playerName);
+	}
+	
+	private void printASCII() {
+		System.out.println("" +
+				"       ____        __  __      _____        ______   \n" +
+				"      /\\  _`\\     /\\ \\/\\ \\    /\\  __`\\     /\\__  _\\  \n" +
+				"      \\ \\ \\L\\ \\   \\ \\ \\ \\ \\   \\ \\,\\L\\_\\   \\/_/\\ \\/  \n" +
+				"       \\ \\ ,  /    \\ \\ \\ \\ \\   \\/_\\__ \\      \\ \\ \\  \n" +
+				"        \\ \\ \\\\ \\    \\ \\ \\_\\ \\    /\\ \\L\\ \\     \\ \\ \\ \n" +
+				"         \\ \\_\\ \\_\\   \\ \\_____\\   \\ `\\____\\     \\ \\_\\\n" +
+				"          \\/_/\\/ /    \\/_____/    \\/_____/      \\/_/");
 	}
 }
